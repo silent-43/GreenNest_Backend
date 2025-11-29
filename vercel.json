@@ -1,3 +1,5 @@
+
+/*
 {
  "version": 2,
  "builds": [
@@ -13,4 +15,24 @@
    "dest": "server.js"
   }
  ]
+}
+ */
+
+
+
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/server.js",
+      "use": "@vercel/node",
+      "config": { "includeFiles": ["dist/**"] }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/server.js"
+    }
+  ]
 }

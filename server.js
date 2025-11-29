@@ -23,6 +23,36 @@ dotenv.config();
 
 
 
+
+
+
+
+
+
+import myFunction from "../dist/myFunction.js"; // adjust path
+
+export default async function handler(req, res) {
+  try {
+    // Example: handle GET request
+    if (req.method === "GET") {
+      const result = await myFunction(); // call your backend logic
+      res.status(200).json({ success: true, data: result });
+    } else {
+      res.status(405).json({ error: "Method Not Allowed" });
+    }
+  } catch (err) {
+    console.error("Serverless function error:", err);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+}
+
+
+
+
+
+
+
+
 // ENV & PATH SETUP ..............................
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
