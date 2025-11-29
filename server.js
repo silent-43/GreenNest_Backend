@@ -33,9 +33,9 @@ import myFunction from "../dist/myFunction.js"; // adjust path
 
 export default async function handler(req, res) {
   try {
-    // Example: handle GET request
+    //handle GET request
     if (req.method === "GET") {
-      const result = await myFunction(); // call your backend logic
+      const result = await myFunction(); // call backend logic
       res.status(200).json({ success: true, data: result });
     } else {
       res.status(405).json({ error: "Method Not Allowed" });
